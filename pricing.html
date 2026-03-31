@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QC3WC1WNNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QC3WC1WNNT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — SwiftDeploy</title>
+    <meta name="description" content="Simple, credit-based pricing. Start free, scale as you grow. Free tier: 2,000 credits/month. No credit card required.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { dark: { 900:'#0a0a0f', 800:'#12121a', 700:'#1a1a25', 600:'#252535' } } } }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        body { background-color: #0a0a0f; color: #e2e8f0; }
+        .gradient-text { background: linear-gradient(135deg,#60a5fa 0%,#c084fc 50%,#60a5fa 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .accent-blue { color: #60a5fa; }
+        .accent-blue-bg { background-color: #3b82f6; }
+        .check-icon { color: #60a5fa; }
+        .nav-blur { background: rgba(10,10,15,0.95); backdrop-filter: blur(12px); }
+        .text-dark-body { color: #94a3b8; }
+        .pricing-card { transition: all 0.3s ease; background: #12121a; border: 1px solid #252535; }
+        .pricing-card:hover { transform: scale(1.02); border-color: #3b82f6; }
+        .pricing-card.featured { border: 2px solid #3b82f6; position: relative; }
+        .pricing-card.featured::before {
+            content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: #3b82f6; color: white; padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full nav-blur border-b border-dark-600 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <span class="font-bold text-xl tracking-tight gradient-text">⚡ SwiftDeploy</span>
+                    <span class="text-xs font-medium text-accent-blue px-2 py-0.5 bg-dark-700 rounded-full">beta</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="how-it-works.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">How it Works</a>
+                    <a href="pricing.html" class="text-sm font-medium text-white transition-colors">Pricing</a>
+                    <a href="security.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Security</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://portal.swiftdeploy.ai" target="_blank"
+                       class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 accent-blue-bg text-white font-semibold rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+                        Start Deploying
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="pt-32 pb-16 bg-dark-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+                Simple, <span class="gradient-text">Credit-Based</span> Pricing
+            </h1>
+            <p class="text-xl text-dark-body">
+                Start free, scale as you grow. Pay for what you use, upgrade when you need more.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pricing Cards -->
+    <section class="pb-24 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Free -->
+                <div class="pricing-card rounded-2xl p-6">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Free</h3>
+                        <div class="text-3xl font-bold text-white">$0<span class="text-base font-normal text-gray-500">/mo</span></div>
+                        <p class="text-xs text-dark-body mt-2">Perfect for side projects</p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-dark-body mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>1 project</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>1 environment</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Community support</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>1 concurrent deploy</li>
+                        <li class="flex items-center gap-2 text-white font-medium"><i data-lucide="check" class="w-4 h-4 check-icon"></i>2,000 credits/month</li>
+                    </ul>
+                    <a href="https://portal.swiftdeploy.ai" target="_blank"
+                       class="block w-full text-center py-2.5 rounded-lg bg-dark-600 text-gray-300 font-semibold hover:bg-dark-500 transition-colors text-sm">
+                        Get Started Free
+                    </a>
+                </div>
+
+                <!-- Pro -->
+                <div class="pricing-card featured rounded-2xl p-6">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Pro</h3>
+                        <div class="text-3xl font-bold accent-blue">$20<span class="text-base font-normal text-gray-500">/mo</span></div>
+                        <p class="text-xs text-dark-body mt-2">Best for indie developers</p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-dark-body mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>5 projects</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Staging + Production</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Priority support</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Custom domains</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>3 concurrent deploys</li>
+                        <li class="flex items-center gap-2 text-white font-medium"><i data-lucide="check" class="w-4 h-4 check-icon"></i>6,000 credits/month</li>
+                    </ul>
+                    <a href="https://portal.swiftdeploy.ai" target="_blank"
+                       class="block w-full text-center py-2.5 rounded-lg accent-blue-bg text-white font-semibold hover:bg-blue-600 transition-colors text-sm shadow-lg shadow-blue-500/20">
+                        Start Pro
+                    </a>
+                </div>
+
+                <!-- Team -->
+                <div class="pricing-card rounded-2xl p-6">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Team</h3>
+                        <div class="text-3xl font-bold text-white">$40<span class="text-base font-normal text-gray-500">/seat/mo</span></div>
+                        <p class="text-xs text-dark-body mt-2">For growing teams</p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-dark-body mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Unlimited projects</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Shared environments</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>SSO integration</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>10 concurrent deploys</li>
+                        <li class="flex items-center gap-2 text-white font-medium"><i data-lucide="check" class="w-4 h-4 check-icon"></i>12,000 credits/month</li>
+                    </ul>
+                    <a href="https://portal.swiftdeploy.ai" target="_blank"
+                       class="block w-full text-center py-2.5 rounded-lg bg-dark-600 text-gray-300 font-semibold hover:bg-dark-500 transition-colors text-sm">
+                        Start Team
+                    </a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card rounded-2xl p-6">
+                    <div class="mb-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Enterprise</h3>
+                        <div class="text-3xl font-bold text-white">Custom</div>
+                        <p class="text-xs text-dark-body mt-2">For large organisations</p>
+                    </div>
+                    <ul class="space-y-3 text-sm text-dark-body mb-8">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Cloud Organisations</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Dedicated support</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>SLAs</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Volume licensing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Unlimited concurrent deploys</li>
+                        <li class="flex items-center gap-2 text-white font-medium"><i data-lucide="check" class="w-4 h-4 check-icon"></i>Custom credits</li>
+                    </ul>
+                    <a href="mailto:hello@swiftdeploy.ai"
+                       class="block w-full text-center py-2.5 rounded-lg bg-dark-600 text-gray-300 font-semibold hover:bg-dark-500 transition-colors text-sm">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit Cost Breakdown -->
+    <section class="py-24 bg-dark-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">How Credits Work</h2>
+                <p class="text-lg text-dark-body">Credits are consumed per operation. Read-only tools are always free.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Paid ops -->
+                <div class="bg-dark-900 rounded-2xl p-8 border border-dark-600">
+                    <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <i data-lucide="zap" class="w-5 h-5 accent-blue"></i>
+                        Operations that use credits
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-blue-300">deploy</code>
+                            <span class="text-white font-semibold">50 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-blue-300">promote</code>
+                            <span class="text-white font-semibold">20 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-blue-300">rollback</code>
+                            <span class="text-white font-semibold">20 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-blue-300">decommission</code>
+                            <span class="text-white font-semibold">20 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <code class="text-sm text-blue-300">generate_infrastructure</code>
+                            <span class="text-white font-semibold">10 credits</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Free ops -->
+                <div class="bg-dark-900 rounded-2xl p-8 border border-dark-600">
+                    <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                        Always free
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-green-300">get_status</code>
+                            <span class="text-green-400 font-semibold">0 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-green-300">get_balance</code>
+                            <span class="text-green-400 font-semibold">0 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-green-300">get_context</code>
+                            <span class="text-green-400 font-semibold">0 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-dark-600">
+                            <code class="text-sm text-green-300">list_projects</code>
+                            <span class="text-green-400 font-semibold">0 credits</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <code class="text-sm text-green-300">write_memory</code>
+                            <span class="text-green-400 font-semibold">0 credits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credit transparency callout -->
+            <div class="mt-10 bg-dark-900 border border-blue-900/40 rounded-2xl p-6 text-center">
+                <p class="text-dark-body text-sm leading-relaxed">
+                    <span class="text-white font-medium">Full transparency before every action.</span>
+                    SwiftDeploy shows the exact credit cost in the confirmation prompt before your agent spends anything.
+                    A <code class="bg-dark-700 px-1.5 py-0.5 rounded text-xs text-blue-300">_credit_warning</code> is injected into every response when your balance drops below 20%—so you're never caught off guard.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-dark-900">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white text-center mb-16">Common Questions</h2>
+            <div class="space-y-6">
+                <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+                    <h3 class="font-bold text-white mb-2">What happens when I run out of credits?</h3>
+                    <p class="text-dark-body text-sm">Deploy and promote are blocked. All read-only tools (status checks, balance queries, project context) remain free so you can always see what's running. Credits reset on the 1st of each month.</p>
+                </div>
+                <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+                    <h3 class="font-bold text-white mb-2">Do unused credits roll over?</h3>
+                    <p class="text-dark-body text-sm">No. Credits are per calendar month and don't roll over. The free tier gives 2,000 credits—enough for ~40 deploys a month at typical usage.</p>
+                </div>
+                <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+                    <h3 class="font-bold text-white mb-2">What does a "deploy" actually do?</h3>
+                    <p class="text-dark-body text-sm">A deploy runs <code class="bg-dark-700 px-1.5 py-0.5 rounded text-xs text-blue-300">tofu apply</code> against your Terraform plan, provisions or updates AWS resources, and streams progress back to your agent. Each deploy costs 50 credits regardless of infrastructure size.</p>
+                </div>
+                <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+                    <h3 class="font-bold text-white mb-2">Can I upgrade or downgrade mid-month?</h3>
+                    <p class="text-dark-body text-sm">Yes. Tier changes take effect immediately and credits are pro-rated for the remainder of the month.</p>
+                </div>
+                <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+                    <h3 class="font-bold text-white mb-2">Is the infrastructure cost separate from SwiftDeploy credits?</h3>
+                    <p class="text-dark-body text-sm">Yes. SwiftDeploy credits pay for the orchestration service. Your AWS infrastructure costs (EC2, RDS, etc.) are billed directly by AWS to your own account. SwiftDeploy shows you an estimated monthly AWS cost before every deploy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-gradient-to-br from-dark-800 to-dark-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Start with 2,000 free credits</h2>
+            <p class="text-lg text-gray-400 mb-8">No credit card required. Cancel anytime.</p>
+            <a href="https://portal.swiftdeploy.ai" target="_blank"
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 accent-blue-bg text-white font-bold rounded-xl hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/25 text-lg">
+                Start Deploying Free
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark-900 border-t border-dark-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-xl gradient-text">⚡ SwiftDeploy</span>
+                    <span class="text-xs font-medium text-accent-blue px-2 py-0.5 bg-dark-700 rounded-full">beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6 text-sm text-gray-500">
+                    <a href="/" class="hover:text-white transition-colors">Home</a>
+                    <a href="how-it-works.html" class="hover:text-white transition-colors">How it Works</a>
+                    <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+                    <a href="security.html" class="hover:text-white transition-colors">Security</a>
+                    <a href="https://portal.swiftdeploy.ai" target="_blank" class="hover:text-white transition-colors">Portal</a>
+                </div>
+                <div class="text-gray-500 text-sm">© 2026 MacroPulse AI Limited. All rights reserved.</div>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

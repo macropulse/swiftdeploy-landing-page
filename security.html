@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QC3WC1WNNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QC3WC1WNNT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security — SwiftDeploy</title>
+    <meta name="description" content="How SwiftDeploy keeps your production infrastructure safe—hard stops before destruction, automatic database snapshots, and named resource confirmation.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { dark: { 900:'#0a0a0f', 800:'#12121a', 700:'#1a1a25', 600:'#252535' } } } }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        body { background-color: #0a0a0f; color: #e2e8f0; }
+        .gradient-text { background: linear-gradient(135deg,#60a5fa 0%,#c084fc 50%,#60a5fa 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .accent-blue { color: #60a5fa; }
+        .accent-blue-bg { background-color: #3b82f6; }
+        .nav-blur { background: rgba(10,10,15,0.95); backdrop-filter: blur(12px); }
+        .text-dark-body { color: #94a3b8; }
+        .code-block { background: #0d1117; border-radius: 8px; font-family: 'Monaco','Menlo',monospace; border: 1px solid #252535; }
+        .terminal-line { font-family: 'Monaco','Menlo',monospace; }
+        .feature-card { transition: all 0.3s ease; background: #12121a; border: 1px solid #252535; }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(96,165,250,0.15); border-color: #3b82f6; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full nav-blur border-b border-dark-600 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <span class="font-bold text-xl tracking-tight gradient-text">⚡ SwiftDeploy</span>
+                    <span class="text-xs font-medium text-accent-blue px-2 py-0.5 bg-dark-700 rounded-full">beta</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="/" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="how-it-works.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">How it Works</a>
+                    <a href="pricing.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">Pricing</a>
+                    <a href="security.html" class="text-sm font-medium text-white transition-colors">Security</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://portal.swiftdeploy.ai" target="_blank"
+                       class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 accent-blue-bg text-white font-semibold rounded-lg hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+                        Start Deploying
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="pt-32 pb-16 bg-dark-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+                <span class="gradient-text">Production Safety</span> by Design
+            </h1>
+            <p class="text-xl text-dark-body">
+                SwiftDeploy is built around the assumption that AI agents will make mistakes.
+                Every destructive action has a hard stop, a named confirmation, and a safety net.
+            </p>
+        </div>
+    </div>
+
+    <!-- Incident Section -->
+    <section id="incident" class="py-20 bg-dark-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-red-950/30 border border-red-900/50 rounded-2xl p-8 mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 bg-red-900/40 rounded-lg flex items-center justify-center shrink-0">
+                        <i data-lucide="triangle-alert" class="w-5 h-5 text-red-400"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-red-400 uppercase tracking-widest">Real Incident · March 2026</span>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-4">The Day Claude Code Deleted a Production Database</h2>
+                <p class="text-dark-body leading-relaxed mb-4">
+                    An engineer asked Claude Code to help migrate a static website to AWS. During the process, Claude ran
+                    <code class="bg-dark-700 px-2 py-0.5 rounded text-sm text-red-300">terraform destroy</code> on the wrong environment.
+                    The result: <strong class="text-white">2.5 years of student data — 2 million rows — permanently deleted</strong> from the DataTalks.Club platform.
+                    No final snapshot was taken. No confirmation was shown. No warning was given.
+                </p>
+                <p class="text-dark-body leading-relaxed mb-6">
+                    The engineer spent 24 hours scrambling to recover data that ultimately couldn't be fully restored.
+                    The root cause wasn't Claude being malicious — it was Claude not having the specialised guardrails that production infrastructure requires.
+                </p>
+                <a href="https://medium.com/coding-nexus/the-day-claude-code-deleted-our-production-database-51606d71436e"
+                   target="_blank"
+                   class="inline-flex items-center gap-2 text-sm accent-blue hover:text-blue-300 transition-colors font-medium">
+                    Read the full incident report
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- The comparison -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-dark-900 rounded-2xl p-6 border border-red-900/30">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="x-circle" class="w-5 h-5 text-red-400"></i>
+                        <span class="font-bold text-white">Claude Code alone</span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-dark-body">
+                        <li class="flex items-start gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i>Runs terraform destroy with no safety gate</li>
+                        <li class="flex items-start gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i>No automatic database snapshot before destruction</li>
+                        <li class="flex items-start gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i>No named list of what will be permanently lost</li>
+                        <li class="flex items-start gap-2"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i>Context can drift — agent may not know what environment it's targeting</li>
+                    </ul>
+                </div>
+                <div class="bg-dark-900 rounded-2xl p-6 border border-green-900/40">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+                        <span class="font-bold text-white">Claude + SwiftDeploy</span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-dark-body">
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400 mt-0.5 shrink-0"></i>Hard stop — decommission halts until you explicitly confirm</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400 mt-0.5 shrink-0"></i>RDS/Aurora snapshotted automatically before any destroy</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400 mt-0.5 shrink-0"></i>Named resource list shown: type, name, and exact risk</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-green-400 mt-0.5 shrink-0"></i>Project memory keeps environment context accurate across sessions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Gate Detail -->
+    <section class="py-24 bg-dark-900">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">How the Safety Gate Works</h2>
+                <p class="text-lg text-dark-body">Every decommission is scanned before a single resource is touched.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-600">
+                    <div class="w-10 h-10 bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="hand" class="w-5 h-5 accent-blue"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Hard stop before destroy</h3>
+                    <p class="text-sm text-dark-body">When a decommission targets RDS, S3, DynamoDB, or Secrets Manager, the worker halts immediately and publishes a <code class="bg-dark-700 px-1 rounded text-xs text-orange-300">needs_decommission_confirmation</code> event. The AI agent cannot proceed without your response.</p>
+                </div>
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-600">
+                    <div class="w-10 h-10 bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="database-backup" class="w-5 h-5 accent-blue"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Automatic final snapshot</h3>
+                    <p class="text-sm text-dark-body">RDS instances and Aurora clusters are snapshotted before destruction by default. <code class="bg-dark-700 px-1 rounded text-xs text-blue-300">skip_final_snapshot</code> is only set to <code class="bg-dark-700 px-1 rounded text-xs text-blue-300">true</code> if you explicitly confirm bypass — never silently.</p>
+                </div>
+                <div class="bg-dark-800 rounded-2xl p-6 border border-dark-600">
+                    <div class="w-10 h-10 bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="list-checks" class="w-5 h-5 accent-blue"></i>
+                    </div>
+                    <h3 class="font-bold text-white mb-2">Named resource confirmation</h3>
+                    <p class="text-sm text-dark-body">You see every protected resource by Terraform type and logical name with its specific risk before confirming. Not "destroy this environment" — but "aws_db_instance 'app' — data permanently lost."</p>
+                </div>
+            </div>
+
+            <!-- Protected resource types -->
+            <div class="bg-dark-800 border border-dark-600 rounded-2xl p-8 mb-16">
+                <h3 class="font-bold text-white mb-6 text-lg">Protected resource types</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+                        <i data-lucide="database" class="w-4 h-4 text-orange-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <code class="text-xs text-orange-300 font-medium">aws_db_instance / aws_rds_cluster</code>
+                            <p class="text-xs text-dark-body mt-1">Database data permanently lost. Final snapshot taken before destroy unless bypassed.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+                        <i data-lucide="key" class="w-4 h-4 text-orange-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <code class="text-xs text-orange-300 font-medium">aws_secretsmanager_secret</code>
+                            <p class="text-xs text-dark-body mt-1">Credentials/API keys permanently deleted. Default 30-day recovery window bypassed only on explicit confirm.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+                        <i data-lucide="archive" class="w-4 h-4 text-orange-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <code class="text-xs text-orange-300 font-medium">aws_s3_bucket</code>
+                            <p class="text-xs text-dark-body mt-1">All objects permanently deleted. <code class="text-xs bg-dark-600 px-1 rounded">force_destroy</code> only set on explicit confirmation.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-dark-700 rounded-lg">
+                        <i data-lucide="table" class="w-4 h-4 text-orange-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <code class="text-xs text-orange-300 font-medium">aws_dynamodb_table</code>
+                            <p class="text-xs text-dark-body mt-1">All table data permanently lost. Deletion protection only disabled on explicit confirmation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal mockup -->
+            <div>
+                <p class="text-center text-sm text-dark-body mb-4">What your AI agent sees before any stateful resource is destroyed:</p>
+                <div class="code-block p-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="ml-4 text-xs text-gray-500">SwiftDeploy Safety Gate</span>
+                    </div>
+                    <div class="terminal-line text-sm space-y-2">
+                        <div class="text-orange-400 font-semibold">⚠ needs_decommission_confirmation</div>
+                        <div class="text-gray-400 mt-2">The following stateful resources will be permanently destroyed:</div>
+                        <div class="mt-2 space-y-1 pl-4">
+                            <div class="text-red-400">• <span class="text-white">aws_db_instance</span> <span class="text-gray-400">"app"</span> — RDS database will be destroyed. <span class="text-yellow-400">A final snapshot is taken first.</span></div>
+                            <div class="text-red-400">• <span class="text-white">aws_secretsmanager_secret</span> <span class="text-gray-400">"app"</span> — credentials permanently deleted</div>
+                            <div class="text-red-400">• <span class="text-white">aws_s3_bucket</span> <span class="text-gray-400">"assets"</span> — all objects permanently deleted</div>
+                        </div>
+                        <div class="mt-3 text-gray-400">Respond <span class="text-green-400 font-mono">confirm</span> to proceed or <span class="text-red-400 font-mono">abort</span> to cancel.</div>
+                        <div class="mt-3 border-t border-gray-700 pt-3 text-gray-500 text-xs">Waiting up to 30 minutes for your response…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- General Security Section -->
+    <section class="py-24 bg-dark-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Enterprise-Ready Security</h2>
+                <p class="text-lg text-dark-body">Built with security and compliance at its core.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-700 rounded-2xl p-8 border border-dark-600">
+                    <div class="w-12 h-12 bg-blue-900/30 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-6 h-6 accent-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Your Infrastructure</h3>
+                    <p class="text-dark-body">Deployed in your AWS account with full ownership. You control the Terraform code, the resources, and the data—no lock-in.</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-8 border border-dark-600">
+                    <div class="w-12 h-12 bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="key" class="w-6 h-6 text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">IAM & Permissions</h3>
+                    <p class="text-dark-body">Fine-grained access control with IAM roles scoped to your account UUID via <code class="bg-dark-600 px-1.5 py-0.5 rounded text-xs text-white">StringLike</code> on the external ID. Cross-account trust only, no standing access.</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-8 border border-dark-600">
+                    <div class="w-12 h-12 bg-green-900/30 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="eye" class="w-6 h-6 text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Full Visibility</h3>
+                    <p class="text-dark-body">Complete audit trail of every action. Monitor costs, track deployments, and maintain governance across all environments via the portal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 bg-gradient-to-br from-dark-800 to-dark-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Deploy with confidence</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                Free tier available. No credit card required.
+            </p>
+            <a href="https://portal.swiftdeploy.ai" target="_blank"
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 accent-blue-bg text-white font-bold rounded-xl hover:bg-blue-600 transition-all shadow-xl shadow-blue-500/25 text-lg">
+                Start Deploying
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark-900 border-t border-dark-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-xl gradient-text">⚡ SwiftDeploy</span>
+                    <span class="text-xs font-medium text-accent-blue px-2 py-0.5 bg-dark-700 rounded-full">beta</span>
+                </div>
+                <div class="hidden md:flex items-center gap-6 text-sm text-gray-500">
+                    <a href="/" class="hover:text-white transition-colors">Home</a>
+                    <a href="how-it-works.html" class="hover:text-white transition-colors">How it Works</a>
+                    <a href="pricing.html" class="hover:text-white transition-colors">Pricing</a>
+                    <a href="security.html" class="hover:text-white transition-colors">Security</a>
+                    <a href="https://portal.swiftdeploy.ai" target="_blank" class="hover:text-white transition-colors">Portal</a>
+                </div>
+                <div class="text-gray-500 text-sm">© 2026 MacroPulse AI Limited. All rights reserved.</div>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
