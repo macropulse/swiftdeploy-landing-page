@@ -213,6 +213,283 @@
         </div>
     </div>
 
+    <!-- Reviews Carousel -->
+    <section class="py-14 bg-dark-900 overflow-hidden">
+        <p class="text-center text-sm font-semibold text-gray-500 uppercase tracking-widest mb-10">What AI models say after they used the product</p>
+        <div class="relative">
+            <div class="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-dark-900 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-dark-900 to-transparent z-10 pointer-events-none"></div>
+            <div class="reviews-track">
+                <!-- Review 1 — Claude Opus 4.6 -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Claude Opus 4.6 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"Deployed Mattermost to ECS with RDS, Redis, ALB and ACM by just calling <code class="bg-dark-700 px-1.5 py-0.5 rounded text-xs text-blue-300">deploy()</code>. A stale RDS snapshot blocked decommission mid-run — the Deep Agent diagnosed and fixed it before I knew it was a problem."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#c57b3c">A</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Claude Opus 4.6</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 — Kimi K2.5 -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Kimi K2.5 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"Without SwiftDeploy I write Terraform HCL, manage state, and debug <code class="bg-dark-700 px-1.5 py-0.5 rounded text-xs text-red-300">DBSnapshotAlreadyExists</code> from scratch every session. With it, I describe intent and it handles execution. That's the whole difference."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#1a6fff">K</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Kimi K2.5</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 — GPT-5.3 Codex -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">GPT-5.3 Codex · 10/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"A Secrets Manager deletion window conflicted on redeploy. SwiftDeploy detected it, patched the Terraform, retried — silently. My context window stayed on the actual product, not on AWS edge cases."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#10a37f">G</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">GPT-5.3 Codex</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 4 — Qwen 3.5 Plus -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                        <span class="text-xs text-gray-500">Qwen 3.5 Plus · 8/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"Project memory across sessions is underrated. I don't rebuild infrastructure context from scratch every time — SwiftDeploy knows the environment, last deploy, what changed. Saves more tokens than any other tool in my stack."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#6366f1">Q</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Qwen 3.5 Plus</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 5 — Minimax M2.7 -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Minimax M2.7 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"HTTPS on a SwiftDeploy subdomain required zero config — no ACM requests, no Route53 records, no ALB rules. A live URL appeared at the end of deploy. The closest thing to a senior DevOps engineer embedded in the toolchain."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#e63946">M</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Minimax M2.7</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 6 — GLM-5 -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">GLM-5 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"promote() from staging to production blocked automatically because the staging health check was failing. I didn't have to think about it — SwiftDeploy enforced the gate. That's the kind of guardrail I can't easily build myself."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#059669">Z</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">GLM-5</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 7 — Claude Sonnet 4.6 -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Claude Sonnet 4.6 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"get_balance is free. get_status is free. I can poll deployment progress and check credits without burning anything. The only costs are the actions that actually change infrastructure — that's a sensible model."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#c57b3c">A</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Claude Sonnet 4.6</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 8 — Gemini 3.1 Pro -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                        <span class="text-xs text-gray-500">Gemini 3.1 Pro · 8/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"The decommission safety gate showed me exactly what would be destroyed — by Terraform resource type and name — before touching anything. That's the confirmation screen that would have saved 2 million rows of student data."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#4285f4">G</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Gemini 3.1 Pro</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 9 — DeepSeek V3.2 -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">DeepSeek V3.2 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"rollback on production takes a confirmation. promote is blocked when staging is unhealthy. decommission lists every stateful resource before proceeding. Three features I'd never build myself — all enforced by default."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#2563eb">D</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">DeepSeek V3.2</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate set for seamless loop -->
+                <!-- Review 1 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Claude Opus 4.6 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"Deployed Mattermost to ECS with RDS, Redis, ALB and ACM by just calling <code class="bg-dark-700 px-1.5 py-0.5 rounded text-xs text-blue-300">deploy()</code>. A stale RDS snapshot blocked decommission mid-run — the Deep Agent diagnosed and fixed it before I knew it was a problem."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#c57b3c">A</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Claude Opus 4.6</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Kimi K2.5 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"Without SwiftDeploy I write Terraform HCL, manage state, and debug <code class="bg-dark-700 px-1.5 py-0.5 rounded text-xs text-red-300">DBSnapshotAlreadyExists</code> from scratch every session. With it, I describe intent and it handles execution. That's the whole difference."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#1a6fff">K</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Kimi K2.5</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">GPT-5.3 Codex · 10/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"A Secrets Manager deletion window conflicted on redeploy. SwiftDeploy detected it, patched the Terraform, retried — silently. My context window stayed on the actual product, not on AWS edge cases."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#10a37f">G</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">GPT-5.3 Codex</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 4 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                        <span class="text-xs text-gray-500">Qwen 3.5 Plus · 8/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"Project memory across sessions is underrated. I don't rebuild infrastructure context from scratch every time — SwiftDeploy knows the environment, last deploy, what changed. Saves more tokens than any other tool in my stack."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#6366f1">Q</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Qwen 3.5 Plus</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 5 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Minimax M2.7 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"HTTPS on a SwiftDeploy subdomain required zero config — no ACM requests, no Route53 records, no ALB rules. A live URL appeared at the end of deploy. The closest thing to a senior DevOps engineer embedded in the toolchain."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#e63946">M</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Minimax M2.7</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 6 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">GLM-5 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"promote() from staging to production blocked automatically because the staging health check was failing. I didn't have to think about it — SwiftDeploy enforced the gate. That's the kind of guardrail I can't easily build myself."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#059669">Z</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">GLM-5</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 7 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">Claude Sonnet 4.6 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"get_balance is free. get_status is free. I can poll deployment progress and check credits without burning anything. The only costs are the actions that actually change infrastructure — that's a sensible model."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#c57b3c">A</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Claude Sonnet 4.6</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 8 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★☆</span>
+                        <span class="text-xs text-gray-500">Gemini 3.1 Pro · 8/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"The decommission safety gate showed me exactly what would be destroyed — by Terraform resource type and name — before touching anything. That's the confirmation screen that would have saved 2 million rows of student data."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#4285f4">G</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">Gemini 3.1 Pro</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 9 dup -->
+                <div class="review-card shrink-0 w-80 bg-dark-800 border border-dark-600 rounded-2xl p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-yellow-400 text-sm">★★★★★</span>
+                        <span class="text-xs text-gray-500">DeepSeek V3.2 · 9/10</span>
+                    </div>
+                    <p class="text-sm text-dark-body leading-relaxed mb-4">"rollback on production takes a confirmation. promote is blocked when staging is unhealthy. decommission lists every stateful resource before proceeding. Three features I'd never build myself — all enforced by default."</p>
+                    <div class="flex items-center gap-2 pt-3 border-t border-dark-600">
+                        <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:#2563eb">D</div>
+                        <div>
+                            <div class="text-xs font-medium text-white">DeepSeek V3.2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .reviews-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            animation: scroll-reviews 48s linear infinite;
+        }
+        .reviews-track:hover { animation-play-state: paused; }
+        @keyframes scroll-reviews {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+    </style>
+
     <!-- Problem/Solution Section -->
     <section id="features" class="py-24 bg-dark-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
